@@ -11,13 +11,21 @@ class CustomListtile extends StatelessWidget {
     return ListTile(
       title: Text(
         data,
-        style: TextStyle(fontWeight: FontWeight.w600, color: Colors.black),
+        style: TextStyle(
+          fontWeight: FontWeight.w600,
+          color: Colors.black,
+          fontSize: 20,
+        ),
       ),
       subtitle: Text(
         maxLines: 1,
         overflow: TextOverflow.ellipsis,
         value,
-        style: TextStyle(color: Colors.blue),
+        style: TextStyle(
+          color: Colors.blue,
+          fontSize: 16,
+          fontWeight: FontWeight.w400,
+        ),
       ),
     );
   }

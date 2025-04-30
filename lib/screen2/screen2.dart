@@ -54,9 +54,14 @@ class Screen2 extends StatelessWidget {
                   Spacer(),
                   TextButton(
                     onPressed: () {},
-                    child: Text(
-                      "Enabled >",
-                      style: TextStyle(fontSize: 20, color: Colors.grey),
+                    child: Row(
+                      children: [
+                        Text(
+                          "Enabled",
+                          style: TextStyle(fontSize: 20, color: Colors.grey),
+                        ),
+                        Icon(Icons.arrow_forward_ios),
+                      ],
                     ),
                   ),
                 ],
