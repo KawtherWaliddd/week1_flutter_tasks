@@ -12,7 +12,7 @@ class Screen4 extends StatelessWidget {
       home: Scaffold(
         appBar: AppBarWidget(),
         body: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 16),
+          padding: const EdgeInsets.fromLTRB(10, 10, 10, 50),
           child: Column(
             children: [
               Foodcard(),

@@ -10,6 +10,7 @@ class Screen2 extends StatelessWidget {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
+          leadingWidth: 90,
           centerTitle: true,
           leading: TextButton(
             onPressed: () {},
@@ -60,7 +61,7 @@ class Screen2 extends StatelessWidget {
                           "Enabled",
                           style: TextStyle(fontSize: 20, color: Colors.grey),
                         ),
-                        Icon(Icons.arrow_forward_ios),
+                        Icon(Icons.arrow_forward_ios, color: Colors.grey),
                       ],
                     ),
                   ),
