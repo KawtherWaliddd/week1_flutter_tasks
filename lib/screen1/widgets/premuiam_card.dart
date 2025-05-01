@@ -6,48 +6,51 @@ class PremuiamCard extends StatelessWidget {
     required this.periodic,
     required this.price,
     required this.periodicZone,
+    required this.discound,
+    required this.groupValue,
+    required this.onChanged,
   });
-  final String periodic, price, periodicZone;
+
+  final String periodic, price, periodicZone, discound;
+  final String groupValue;
+  final ValueChanged<String?> onChanged;
+
   @override
   Widget build(BuildContext context) {
+    final bool isSelected = periodic == groupValue;
+
     return Container(
-      margin: EdgeInsets.symmetric(vertical: 10),
+      margin: const EdgeInsets.symmetric(vertical: 10),
       decoration: BoxDecoration(
-        border: Border.all(color: Colors.grey, width: 1),
+        border: Border.all(
+          color: isSelected ? Colors.blue : Colors.grey,
+          width: 1,
+        ),
         borderRadius: BorderRadius.circular(12),
       ),
       child: ListTile(
-        leading: Radio(
-          value: 'Yearly',
-          groupValue: 'time',
-          onChanged: (value) {},
+        leading: Radio<String>(
+          activeColor: Colors.blue,
+          value: periodic,
+          groupValue: groupValue,
+          onChanged: onChanged,
         ),
         title: Text(
           periodic,
-          style: TextStyle(
-            fontSize: 20,
-            color: Colors.black,
-            fontWeight: FontWeight.bold,
-          ),
+          style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
         ),
         subtitle: Text(
-          "-66% discound",
-          style: TextStyle(fontSize: 16, color: Colors.green),
+          discound,
+          style: const TextStyle(fontSize: 16, color: Colors.green),
         ),
         trailing: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
               price,
-              style: TextStyle(
-                fontSize: 18,
-                color: Colors.black,
-                fontWeight: FontWeight.bold,
-              ),
+              style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
             ),
-            Text(
-              periodicZone,
-              style: TextStyle(fontSize: 14, color: Colors.black),
-            ),
+            Text(periodicZone, style: const TextStyle(fontSize: 14)),
           ],
         ),
       ),

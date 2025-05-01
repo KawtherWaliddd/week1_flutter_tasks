@@ -4,8 +4,8 @@ class DataModel {
   final String periodicZone;
   final String price;
 
-  DataModel(
-    this.periodicZone, {
+  DataModel({
+    required this.periodicZone,
     required this.periodic,
     required this.discound,
     required this.price,

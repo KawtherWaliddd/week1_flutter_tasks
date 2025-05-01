@@ -2,28 +2,37 @@ import 'package:flutter/material.dart';
 import 'package:tasks_flutter/screen1/data_model.dart';
 import 'package:tasks_flutter/screen1/widgets/premuiam_card.dart';
 
-class CardList extends StatelessWidget {
-  CardList({super.key});
+class CardList extends StatefulWidget {
+  const CardList({super.key});
+
+  @override
+  State<CardList> createState() => _CardListState();
+}
+
+class _CardListState extends State<CardList> {
+  String selected = '';
+
   final List<DataModel> data = [
     DataModel(
-      "every year",
       periodic: "Yearly",
-      discound: "-66%",
+      discound: "-66.9%",
       price: "1.90 L.E",
+      periodicZone: "every year",
     ),
     DataModel(
-      "every Month",
       periodic: "Monthly",
-      discound: "-40%",
+      discound: "-40.8%",
       price: "2.30 L.E",
+      periodicZone: "every Month",
     ),
     DataModel(
-      "every Day",
       periodic: "Dayly",
-      discound: "-20%",
+      discound: "-20.3%",
       price: "500 L.E",
+      periodicZone: "every Day",
     ),
   ];
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -33,6 +42,13 @@ class CardList extends StatelessWidget {
               periodic: timeZone.periodic,
               price: timeZone.price,
               periodicZone: timeZone.periodicZone,
+              discound: timeZone.discound,
+              groupValue: selected,
+              onChanged: (val) {
+                setState(() {
+                  selected = val!;
+                });
+              },
             );
           }).toList(),
     );
